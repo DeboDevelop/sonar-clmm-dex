@@ -1,7 +1,7 @@
 [package]
 name = "sonar-clmm-dex"
 version = "0.1.0"
-description = "Created with Anchor"
+description = "Uniswap V3-like CLMM DEX"
 edition = "2021"
 
 [lib]
@@ -14,14 +14,15 @@ cpi = ["no-entrypoint"]
 no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
-idl-build = ["anchor-lang/idl-build"]
+idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
 anchor-debug = []
 custom-heap = []
 custom-panic = []
 
 [dependencies]
-anchor-lang = "0.32.1"
-anchor-spl = { version = "0.32.1", features = ["token"] }
+anchor-lang = { git="https://github.com/solana-foundation/anchor.git" }
+anchor-spl = { git = "https://github.com/solana-foundation/anchor.git", features = ["token"] }
+proc-macro2 = "1.0.94"
 
 [lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(target_os, values("solana"))'] }
